@@ -106,3 +106,17 @@ whenever you create a new routes file you do 2 things in server.js
 1. import it with a const somethingRoutes = require(./routes/somethingRoutes)
 2. mount it with an app.use('/', somethingRoutes)
 or /farmer, famerRoutes
+
+5. QUICK UPLOAD TO GIT 
+
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/sanyukimuli/NAMEOFREPO
+git push -u origin main
+then after you can just git add git commit -m "" and git push
+
+NAVBAR:
+used a remixicon cdn in the head and its class to get some icons
+used google fonts in same way 

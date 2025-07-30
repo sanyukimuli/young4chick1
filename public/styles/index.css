@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*using root helps you basically label the main css on your page so you can reuse it wherever you like*/ 
+
+:root {
+    --main-colour: #ffc60a;
+    --secondary-colour: #ffecad;
+    --text-colour: #1c1500;
+    --text-colour-2: #decfa1;
+    --width: 1200px;
+    --header-font: "Bebas Neue", sans-serif;
+    --white: #fff; 
+}
+
+/* using an asterisk is the universal selector of every element on the page */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*keeps content border and padding the exact size I put it, before it would add extra space for border and padding*/
+}
+
+img {
+    display:flex;
+    width: 100%
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+nav {
+    position: fixed;
+    isolation: isolate; /*stops nav from affecting things outside its bubble */
+    width: 100%
+}
+
+.navHeader {
+ padding: 16px;
+ width: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: space-between; /*pushes them apart on page*/
+ background-color: var(--main-colour);
+}
+
+.navLogo a {
+    font-size: 40px;
+    font-weight: 400;
+    font-family: var(--header-font);
+    color: var(--text-colour);
+
+}
+
+.navMenuBtn {
+    font-size: 30px;
+    color: var(--text-colour);
+    cursor: pointer;
+}
+
+.navLinks {
+    background-color: var(--main-colour);
+    display: none;
+    margin-top: 20px;
+    
+}
+
+.navLinks.open {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    flex-direction: column;
+    gap: 24px;
+    display: flex;
+   
+}
+
+.navLinks a {
+    font-weight: 600;
+    color: var(--text-colour);
+}
+
+.navLinks a:hover{
+    color: var(--white);
+}
+
+.navBtns {
+   display: flex; 
+   flex: 1;
+}
+
+.navLogoSpan{
+    color: var(--white);
+}
+
+button {
+    outline: none;
+   border-color: #1c1500;
+   font-size: 16px;
+   border-radius: 10px;
+   padding: 10px;
+   cursor: pointer;
+   margin-left: 20px;
+   background-color: var(--main-colour);
+   font-family: "Poppins", sans-serif;
+   margin-bottom: 18px;
+}
+
+
+
+
+
