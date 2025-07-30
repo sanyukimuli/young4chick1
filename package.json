@@ -1,0 +1,19 @@
+{
+  "name": "final-project4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Sanyu Kimuli",
+  "license": "ISC",
+  "description": "young4chicks fresh rebuild",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "mongoose": "^8.17.0",
+    "nodemon": "^3.1.10",
+    "pug": "^3.0.3"
+  }
+}

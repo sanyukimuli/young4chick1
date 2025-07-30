@@ -1,0 +1,108 @@
+1. PROJECT SETUP
+
+I want to start by making sure my basic CRUD is organised. I will add css at the very end but since building afresh I want to start with functionality as a priority
+
+1. npm init & npm install express for server/routes
+mongoose for MongoDB models
+dotenv to manage DB connection
+pug for views
+nodemon for auto-restart during dev after you npm start 
+
+2. FILE STRUCTURE
+
+FINALPROJECT4
+models
+public
+    images
+    styles
+    js
+routes
+views
+.env
+package.json (comes automatically)
+server.js
+
+3. SERVER FILE 
+
+// 1. Dependencies
+const express = require('express');
+const path = require('path');
+const mongoose = require('mongoose');
+
+require('dotenv').config();
+
+// import routes
+// const somethingRoutes = require('./routes/somethingRoutes');
+
+//instantiations 
+const app = express();
+const port = 3002; // default port
+
+// 2. Database connection
+mongoose.connect(process.env.DATABASE);
+mongoose.connection
+  .once('open', () => {
+    console.log('Mongoose connection open');
+  })
+  .on('error', (error) => {
+    console.error(`Connection error: ${error.message}`);
+  });
+
+// 3. View engine config 
+app.set('view engine', 'pug'); // setting pug as the view engine
+app.set('views', path.join(__dirname, 'views')); //saying our front endpages will be found here 
+
+// 4. Middleware
+app.use((req, res, next) => {
+  console.log('A new request received at ' + Date.now());
+  next();
+});
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// 5. Routes
+// app.use('/', somethingRoutes);
+
+// error handler
+app.use((req, res) => {
+  res.status(404).send('Oops! Route not found.');
+});
+
+// 6. Start server
+app.listen(port, () => console.log(`Listening on port ${port}`));
+
+
+something to note about app.get('/') vs. 
+const somethingRoutes = require(./routes/somethingRoutes);
+app.use('/', somethingRoutes);
+
+app.get('/') = when someone visits the homepage (just a normal browser visit), show them this page.
+— It’s for handling a normal page visit.
+
+app.use('/', somethingRoutes) = when any request (aka visit) comes in that starts with / (which is basically all requests), run this function (somethingRoutes) first.
+— It’s like a filter or helper that runs before your real page shows up
+
+but we use router.get and res.render or redirect etc in the route files and then link the route file to an app.use in the server bc it lets us bunch loads of routes and keeps the server clean
+
+
+4. FIRST PUG, ROUTE and USE  
+
+aim: create a routes index file, create an index pug and update it in the server with a const and app.use 
+
+structure of routes:
+
+const express = require('express');
+const router = express.Router();
+
+router.get('/', (req, res) => {
+    res.render('index')
+});
+
+module.exports = router;
+
+whenever you create a new routes file you do 2 things in server.js
+
+1. import it with a const somethingRoutes = require(./routes/somethingRoutes)
+2. mount it with an app.use('/', somethingRoutes)
+or /farmer, famerRoutes
