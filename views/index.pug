@@ -1,7 +1,117 @@
 doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
-    body 
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css' rel='stylesheet')
+  link(rel='stylesheet' href='/styles/index.css')
+  title Young4Chick.
+nav
+  .navHeader
+    // div is a container, stacks vertically. Span is a highlighter, takes up the space it needs
+    .navLogo
+      a(href='#')
+        | Young4
+        span.navLogoSpan Chick.
+    .navBtns
+      a(href='/signup')
+        button#signUp Sign Up
+      a(href='/login')
+        button#login Login
+    #menuBtn.navMenuBtn
+      span
+        i.ri-menu-line
+  ul#links.navLinks
+    li
+      a(href='#') Home
+    li
+      a(href='#') About Us
+    li
+      a(href='#') Chickstarter Kit
+    li
+      a(href='#') Contact Us
+.mainSection
+  .homeSection
+    .homeHeader
+      i.ri-home-heart-line.icon
+      h1
+        | Welcome to 
+        span Young4Chick.
+    br
+    p
+      i.ri-seedling-line.bullet-icon.eggIcon
+      |     A youth-powered poultry initiative equipping the next generation of farmers with resources, knowledge, and support.
+      br
+      br
+      i.ri-group-line.bullet-icon.eggIcon
+      |     Join a vibrant community of young entrepreneurs (ages 18&ndash;30) transforming poultry farming across Uganda.
+      br
+      br
+      i.ri-rocket-line.bullet-icon
+      |     Whether you&apos;re just curious or already raising chicks, Young4Chick is your launchpad for sustainable impact!
+  br
+  br
+  .aboutSection
+    h1
+      i.ri-team-line.aboutIcon
+      |  About Us
+    br
+    p#aboutUsPara
+      | Young4Chick was birthed out of a vision to bridge the gap between youth unemployment and agriculture by providing meaningful pathways into poultry farming. 
+      br
+      br
+      | Founded by a youth MP passionate about rural innovation, the initiative connects young people with starter chicks, training, and ongoing mentorship. 
+      br
+      br
+      |         Through collaboration with brooder managers, sales reps, and agricultural experts, we ensure every registered young farmer gets the support they need to grow from beginner to business-ready!
+  br
+  .chickstarterSection
+    h1
+      i.ri-plant-line.eggIcon
+      |  Chickstarter Kit (For Young Farmers)
+    .step.step1
+      i.ri-user-add-line.step-icon
+      div
+        strong Step 1: Register as a Young Farmer
+        br
+        |       To be eligible, you must be between 18&ndash;30 years old. Fill out the registration form and once verified, you&apos;re eligible to submit chick requests once every 4 months.
+    .step.step2
+      i.ri-file-edit-line.step-icon
+      div
+        strong Step 2: Request for Chicks
+        br
+        |        Fill in the request form stating the number (100 for starters, up to 500 for returning), the type (Broilers or Layers), and your status (Starter or Returning). Your request goes to the Brooder Manager for approval.
+    .step.step3
+      i.ri-checkbox-circle-line.step-icon.eggIcon
+      div
+        strong Step 3: Wait for Approval
+        br
+        |       The Brooder Manager checks stock and approves valid requests. Once approved, your request is marked as &quot;Ready for Pickup&quot;.
+    .step.step4
+      i.ri-truck-line.step-icon.eggIcon
+      div
+        strong Step 4: Pick Up Chicks &amp; Feed
+        br
+        |       Chicks cost UGX 1,650 each. Farmers can get up to 2 bags of feed (payable after 2 months). A Sales Rep confirms handover and marks it as a complete sale!
+    p.kit-closing
+      | This kit is your launchpad into poultry farming, an industry that sets you up for life. 
+      br
+      |  We all gotta eat, right? What are you waiting for?!
+  footer.footer
+    .footer-content
+      h2 Contact Us
+      ul.contact-info
+        li
+          i.ri-map-pin-line
+          |  Plot 12, Chickway Avenue, Kampala, Uganda
+        li
+          i.ri-mail-line
+          |  support@young4chick.org
+        li
+          i.ri-phone-line
+          |  +256 777 000 999
+        li
+          i.ri-instagram-line.eggIcon
+          |  @young4chick
+    .footer-bottom
+      p &copy; 2025 Young4Chick. All rights reserved.
+  script(src='/js/index.js')

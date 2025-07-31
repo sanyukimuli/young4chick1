@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --main-colour: #ffc60a;
+    --secondary-colour: #ffecad;
+    --text-colour: #1c1500;
+    --text-colour-2: #decfa1;
+    --width: 1200px;
+    --header-font: "Bebas Neue", sans-serif;
+    --white: #fff; 
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*keeps content border and padding the exact size I put it, before it would add extra space for border and padding*/
+}
+
+body {
+    height: 100vh; /*brings to middle of page*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.formContainer {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid var(--text-colour);
+    border-radius: 5px;
+    background-color: var(--main-colour);
+    font-family: "Poppins", sans-serif; 
+}
+
+input {
+    margin-left: 5px;
+    padding: 5px;
+}
+

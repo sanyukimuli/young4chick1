@@ -5,6 +5,14 @@ router.get('/', (req, res) => {
     res.render('index')
 });
 
-/* include the routes for the signup seeing as that falls under all the users*/
+// signup route
+router.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
+// login route
+router.get('/login', (req, res) => {
+  res.render('login');
+});
 
 module.exports = router;

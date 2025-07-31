@@ -28,10 +28,10 @@ app.set('view engine', 'pug'); // setting pug as the view engine
 app.set('views', path.join(__dirname, 'views')); //saying our front endpages will be found here 
 
 // 4. Middleware
-app.use((req, res, next) => {
-  console.log('A new request received at ' + Date.now());
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log('A new request received at ' + Date.now());
+//   next();
+// });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));

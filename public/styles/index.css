@@ -10,6 +10,8 @@
     --width: 1200px;
     --header-font: "Bebas Neue", sans-serif;
     --white: #fff; 
+    --accent-colour: #4dec48; 
+    --light-colour: #fefce8; 
 }
 
 /* using an asterisk is the universal selector of every element on the page */
@@ -35,7 +37,7 @@ body {
 }
 
 nav {
-    position: fixed;
+    position: sticky;
     isolation: isolate; /*stops nav from affecting things outside its bubble */
     width: 100%
 }
@@ -117,7 +119,138 @@ button {
    margin-bottom: 18px;
 }
 
+.mainSection {
+    padding-top: 360px;
+}
+
+i {
+    font-size: 48px;
+    background-color: var(--main-colour);
+    border-radius: 30px;
+    padding: 8px;
+    margin: 8px;
+    vertical-align: middle;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
+.logo-image {
+    height: 90px;
+    width: auto;                 
+    display: inline-block; 
+    background-color: var(--main-colour);
+    border-radius: 30px;
+    margin: 8px;
+    
+}
+/*about us*/
+
+#aboutUsPara {
+    margin-left: 100px;
+}
+
+
+/*chickstarter kit */
+
+.chickstarterSection {
+  padding: 32px;
+  background-color: var(--light-colour);
+  border-radius: 16px;
+  margin: 32px 0;
+}
+
+.chickstarterSection h1 {
+  font-size: 28px;
+  margin-bottom: 24px;
+  color: var(--main-colour);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background-color: #fff;
+  padding: 16px;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
 
 
 
+.step-icon {
+  font-size: 28px;
+  color: var(--accent-colour);
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.kit-closing {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 32px;
+  text-align: center;
+  background: var(--main-colour);
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1)
+}
+
+/* contact us section */
+
+.footer {
+  background-color: var(--main-colour);
+  color: #fff;
+  padding: 40px 20px 20px;
+  margin-top: 48px;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-content h2 {
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.contact-info i {
+  font-size: 20px;
+  background-color: white;
+  color: var(--main-colour);
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.footer-bottom {
+  margin-top: 24px;
+  font-size: 14px;
+  color: #fefce8;
+}
 
