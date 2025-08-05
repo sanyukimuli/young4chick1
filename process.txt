@@ -8,6 +8,8 @@ dotenv to manage DB connection
 pug for views
 nodemon for auto-restart during dev after you npm start 
 
+then do npm run dev in terminal to actually activate nodemon 
+
 2. FILE STRUCTURE
 
 FINALPROJECT4
@@ -120,3 +122,32 @@ then after you can just git add git commit -m "" and git push
 NAVBAR:
 used a remixicon cdn in the head and its class to get some icons
 used google fonts in same way 
+
+
+Routes & Async Await Explained
+
+ 
+When a user submits the signup form, this POST route runs.
+
+It uses req.body to capture all the form fields (e.g., name, email, password).
+
+It then creates a new instance of the SignupUser model with that data:
+const newUser = new SignupUser(req.body);
+
+await newUser.save() saves the new user to the database.
+
+If successful, it shows the homepage or index page (res.render('index')).
+
+If something goes wrong, it logs the error and sends a server error message.
+
+// POST signup form
+router.post('/signup', async (req, res) => {
+  try {
+    const newUser = new SignupUser(req.body);
+    await newUser.save();
+    res.render('index');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error signing up user');
+  }
+});

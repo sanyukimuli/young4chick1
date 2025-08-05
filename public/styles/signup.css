@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --main-colour: #ffc60a;
+  --secondary-colour: #ffecad;
+  --text-colour: #1c1500;
+  --text-colour-2: #decfa1;
+  --white: #fff;
+  --accent-colour: #4dec48;
+  --light-colour: #fefce8;
+  --header-font: "Bebas Neue", sans-serif;
+}
+
+/* Reset + base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--light-colour);
+  color: var(--text-colour);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Form container */
+.formContainer {
+  background-color: #fff;
+  max-width: 600px;
+  width: 100%;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.formContainer h2 {
+  font-family: var(--header-font);
+  font-size: 32px;
+  color: var(--main-colour);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Form groups */
+.formGroup {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+input[type='text'],
+input[type='number'],
+input[type='password'],
+input[type='date'],
+input[type='option'],
+.formGroup select {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--secondary-colour);
+  border-radius: 10px;
+  background-color: #fff9e8;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--main-colour);
+}
+
+input[type='radio'] {
+  margin-right: 8px;
+  transform: scale(1.2);
+}
+
+/* Submit Button */
+button.submitBtn {
+  background-color: var(--main-colour);
+  color: var(--text-colour);
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+button.submitBtn:hover {
+  background-color: var(--accent-colour);
+  color: var(--white);
+}
+
+/* Message paragraph */
+p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 12px;
+}
+
+/* Icon styling */
+i {
+  font-size: 24px;
+  color: var(--main-colour);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: #1c1500;
+  font-weight: 600;
+}
+
+h2 {
+  margin-top: 25px;
+}
+
+.note {
+  margin: 20px;
+  text-align: center;
+}
+
+.adminSignup {
+  text-decoration: underline;
+  font-weight: 400;
+}

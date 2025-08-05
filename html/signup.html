@@ -7,13 +7,57 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"
 />
-<link rel="stylesheet" href="/styles/login.css">
-    <title>Login</title>
+<link rel="stylesheet" href="/styles/signup.css">
+    <title>SignUp</title>
 </head>
 <body>
     <div class="formContainer">
-    <h2>Login</h2>
-    <form action="/login" method="post">
+    <h2>SignUp as a Young Farmer</h2>
+    <form action="/signup" method="post">
+        <div class="formGroup">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName"
+            id="firstName" placeholder="Enter your first name">
+            </div>
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName"
+            id="lastName" placeholder="Enter your last name">
+            <div class="formGroup">
+            <label for="age">Age</label>
+            <input type="number" name="age"
+            id="age" placeholder="Enter your age">
+            </div>
+             <div class="formGroup">
+            <label for="gender">Gender</label> <br>
+            <input type="radio" name="gender"
+            value="male">Male <br>
+            <input type="radio" name="gender"
+            value="female">Female <br>
+            <input type="radio" name="gender"
+            value="other">Other
+            </div>
+            <div class="formGroup">
+            </div>
+            <div class="formGroup">
+            <label for="nin">National Insurance Number (NIN)</label>
+            <input type="text" name="nin"
+            id="nin" placeholder="Enter your NIN">
+            </div>
+            <div class="formGroup">
+            <label for="recFirstName">Recommender's First Name</label>
+            <input type="text" name="recFirstName"
+            id="recFirstName" placeholder="Recommender's first name">
+            </div>
+            <div class="formGroup">
+            <label for="recLastName">Last Name</label>
+            <input type="text" name="recLastName"
+            id="recLastName" placeholder="Recommender's last name">
+            </div>
+            <div class="formGroup">
+            <label for="recNin">Recommender's NIN</label>
+            <input type="text" name="recNin"
+            id="recNin" placeholder="Recommender's NIN">
+            </div>
         <div class="formGroup">
             <label for="email">Email</label>
             <input type="text" name="email" id="email" placeholder="Enter your email">
@@ -23,10 +67,14 @@
             <input type="text" name="password"
             id="password" placeholder="Enter your password">
             </div>
-            <button type="submit" class="submitBtn">Login
+            <div class="formGroup">
+            <label for="password">Confirm Password</label>
+            <input type="text" name="password"
+            id="password" placeholder="Enter your password">
+            </div>
+            <button type="submit" class="submitBtn">SignUp 
             </button>
         </form>
-        <p>Don't have an account? <a href="/signup">Sign up</a></p>
     </div>
     
 </body>

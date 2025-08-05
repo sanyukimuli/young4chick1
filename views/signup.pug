@@ -1,0 +1,114 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(href='https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css' rel='stylesheet')
+    link(rel='stylesheet' href='/styles/signup.css')
+    title SignUp
+
+  body
+
+    .formContainer
+      a.backBtn(href='/')
+        i.ri-arrow-left-line
+        | Back to Homepage 
+    
+      h2 
+        i.ri-user-add-line 
+        |  Sign Up
+    
+      form(action='/signup' method='post')
+        .formGroup
+          label(for='role')
+            i.ri-admin-line
+            | Role
+            select(name='role' required)
+                option(value='') --
+                option(value='farmer') Farmer
+                option(value='salesRep') Sales Rep 
+                option(value='manager') Manager
+
+
+        .formGroup
+          label(for='firstName')
+            i.ri-user-line 
+            | First Name
+          input#firstName(type='text' name='firstName' placeholder='Enter your first name')
+
+        .formGroup
+          label(for='lastName')
+            i.ri-user-line 
+            | Last Name
+          input#lastName(type='text' name='lastName' placeholder='Enter your last name')
+
+        .formGroup
+          label(for='age')
+            i.ri-calendar-line 
+            | Age*
+            p *Young farmers must be minimum 18 and maximum 30 years old
+          input#age(type='number' name='age'  placeholder='Enter your age' min=18)
+
+        .formGroup
+          label(for='gender')
+            i.ri-genderless-line 
+            | Gender
+          .radioGroup
+            label
+              input(type='radio' name='gender' value='male')
+              | Male
+            label
+              input(type='radio' name='gender' value='female')
+              | Female
+            label
+              input(type='radio' name='gender' value='other')
+              | Other
+
+        .formGroup
+          label(for='nin')
+            i.ri-file-user-line 
+            | National Insurance Number (NIN)
+          input#nin(type='text' name='nin' placeholder='Enter your NIN')
+
+        .formGroup
+          label(for='recFirstName')
+            i.ri-user-shared-line 
+            | Recommender's First Name
+          input#recFirstName(type='text' name='recFirstName' placeholder="Recommender's first name")
+
+        .formGroup
+          label(for='recLastName')
+            i.ri-user-shared-line 
+            | Recommender's Last Name
+          input#recLastName(type='text' name='recLastName' placeholder="Recommender's last name")
+
+        .formGroup
+          label(for='recNin')
+            i.ri-id-card-line 
+            | Recommender's NIN
+          input#recNin(type='text' name='recNin' placeholder="Recommender's NIN")
+
+        .formGroup
+          label(for='email')
+            i.ri-mail-line 
+            | Email
+          input#email(type='text' name='email' placeholder='Enter your email')
+
+        .formGroup
+          label(for='password')
+            i.ri-lock-line 
+            | Password
+          input#password(type='password' name='password' placeholder='Enter your password')
+
+        .formGroup
+          label(for='password2')
+            i.ri-lock-password-line 
+            | Confirm Password
+          input#password2(type='password' name='password2' placeholder='Confirm your password')
+
+        p.note 
+          | After you sign up, we’ll send you back to our homepage. Don’t panic! We’ll let you know if there’s been an error.
+
+        button.submitBtn(type='submit')
+          i.ri-login-box-line 
+          | Sign Up

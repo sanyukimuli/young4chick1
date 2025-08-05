@@ -1,0 +1,74 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(href='https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css' rel='stylesheet')
+    link(rel='stylesheet' href='/styles/yfHub.css')
+    title YF Hub
+
+  body
+    .hubContainer
+      h1 YF Hub
+
+
+
+
+        div.logoutContainer
+            form(action='/logout' method='POST')
+            button(type='submit') Logout
+
+
+      .hubContent
+        .formSection
+          h2 Chick & Feed Request Form
+
+          form(action='/requestChicks' method='POST')
+            label(for='firstName') First Name
+            input(type='text' name='firstName' required)
+
+            label(for='lastName') Last Name
+            input(type='text' name='lastName' required)
+
+            label(for='nin') NIN Number
+            input(type='text' name='nin' required)
+
+            label(for='chickType') Chick Type
+            select(name='chickType' required)
+              option(value='') --
+              option(value='Broiler') Broiler
+              option(value='Layer') Layer
+
+            label(for='status') Farmer Status
+            select(name='status' required)
+              option(value='') --
+              option(value='Starter Farmer') Starter Farmer
+              option(value='Returning Farmer') Returning Farmer
+
+            label(for='category') Chick Category
+            select(name='category' required)
+              option(value='') --
+              option(value='Exotic') Exotic
+              option(value='Local') Local
+
+            label(for='quantity') Quantity
+            input(type='number' name='quantity' required)
+
+            label(for='feed') Feed Amount
+            input(type='number' name='feed' min=0, max=2)
+
+            button(type='submit') Submit Request
+
+        .ordersSection
+          .tabButtons
+            button.tabBtn.active(data-tab='active') Active Orders
+            button.tabBtn(data-tab='history') Order History
+
+          .tabContent#active
+            .card
+              p No active orders yet.
+
+          .tabContent#history(style='display:none')
+            .card
+              p No order history available.
+script(src='/js/yfHub.js')

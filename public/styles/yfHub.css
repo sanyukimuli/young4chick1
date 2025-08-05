@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --main-colour: #ffc60a;
+  --secondary-colour: #ffecad;
+  --text-colour: #1c1500;
+  --white: #fff;
+  --light-colour: #fefce8;
+  --header-font: "Bebas Neue", sans-serif;
+}
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--light-colour);
+  padding: 40px 20px;
+  color: var(--text-colour);
+}
+
+/* Container */
+.hubContainer {
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  font-family: var(--header-font);
+  font-size: 36px;
+  color: var(--main-colour);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hubContent {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+/* Form section */
+.formSection {
+  flex: 1;
+  background: var(--white);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+form label {
+  display: block;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: 2px solid var(--secondary-colour);
+  border-radius: 10px;
+  background: #fff9e8;
+  transition: 0.3s;
+}
+
+form input:focus, form select:focus {
+  outline: none;
+  border-color: var(--main-colour);
+}
+
+form button {
+  margin-top: 24px;
+  width: 100%;
+  background-color: var(--main-colour);
+  color: var(--text-colour);
+  font-weight: 600;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #4dec48;
+  color: var(--white);
+}
+
+/* Orders section */
+.ordersSection {
+  flex: 1;
+}
+
+.tabButtons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+
+.tabBtn {
+  padding: 12px 20px;
+  border: 2px solid var(--secondary-colour);
+  background-color: var(--white);
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  flex: 1;
+  margin: 0 8px;
+  transition: 0.3s;
+}
+
+.tabBtn.active, .tabBtn:hover {
+  background-color: var(--main-colour);
+  color: var(--text-colour);
+}
+
+.tabContent {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* Simple card look */
+.card {
+  background: var(--light-colour);
+  padding: 16px;
+  border-radius: 10px;
+}

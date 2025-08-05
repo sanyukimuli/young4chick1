@@ -1,21 +1,38 @@
 doctype html
-head
-  meta(charset='UTF-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(href='https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css' rel='stylesheet')
-  link(rel='stylesheet' href='/styles/login.css')
-  title Login
-.formContainer
-  h2 Login
-  form(action='/login' method='post')
-    .formGroup
-      label(for='email') Email
-      input#email(type='text' name='email' placeholder='Enter your email')
-    .formGroup
-      label(for='password') Password
-      input#password(type='text' name='password' placeholder='Enter your password')
-    button.submitBtn(type='submit')
-      | Login
-  p
-    | Don&apos;t have an account? 
-    a(href='/signup') Sign up
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(href='https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css' rel='stylesheet')
+    link(rel='stylesheet' href='/styles/signup.css')
+    title Login
+
+  body
+    .formContainer
+      a.backBtn(href='/')
+        i.ri-arrow-left-line
+        | Back to Homepage
+      h2 
+        i.ri-login-box-line
+        |  Login 
+
+      form(action='/login' method='post')
+        .formGroup
+          label(for='email')
+            i.ri-mail-line
+            | Email
+          input#email(type='text' name='email' placeholder='Enter your email')
+
+        .formGroup
+          label(for='password')
+            i.ri-lock-line
+            | Password
+          input#password(type='password' name='password' placeholder='Enter your password')
+
+        button.submitBtn(type='submit')
+          i.ri-login-box-line
+          | Login
+
+      p.note
+        | Don't have an account? 
+        a(href='/signup') Sign Up here

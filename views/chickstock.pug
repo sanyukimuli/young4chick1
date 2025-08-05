@@ -1,0 +1,70 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(href='https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css' rel='stylesheet')
+    link(rel='stylesheet' href='/styles/signup.css')
+    title Add Chick Stock
+
+body
+.hubContainer
+    .hubContent
+    .formContainer
+        a.backBtn(href='/')
+          
+          i.ri-arrow-left-line
+          | Back to Homepage
+
+        
+          form(action='/addstock' method='POST')
+            h2
+              i.ri-store-line
+              |  Add Chick Stock
+            p Please fill the form to add and update chick stock
+
+            .formGroup
+              label(for='chickType')
+                i.ri-bird-line
+                | Chick Type
+              select(name='chickType' required)
+                option(value='') --
+                option(value='Broiler') Broiler
+                option(value='Layer') Layer
+
+            .formGroup
+              label(for='chickCategory')
+                i.ri-stack-line
+                | Chick Category
+              select(name='chickCategory' required ty)
+                option(value='') --
+                option(value='Exotic') Exotic
+                option(value='Local') Local
+
+            .formGroup
+              label(for='quantity')
+                i.ri-hashtag
+                | Quantity
+              input(type='number' name='quantity' required)
+
+            .formGroup
+              label(for='age')
+                i.ri-timer-line
+                | Age in days
+              input(type='number' name='age' min=0 max=14 placeholder='0-14 days' required)
+
+            .formGroup
+              label(for='feedAmount')
+                i.ri-coffee-line
+                | Feed Amount
+              input(type='number' name='feedAmount' min=0 max=2)
+
+            .formGroup
+              label(for='stockDate')
+                i.ri-calendar-line
+                | Stock Date
+              input(type='date' name='stockDate' required)
+
+            button.submitBtn(type='submit')
+              i.ri-add-line
+              | Add Chick Stock
