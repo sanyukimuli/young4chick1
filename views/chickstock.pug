@@ -9,62 +9,61 @@ html
 
 body
 .hubContainer
-    .hubContent
-    .formContainer
-        a.backBtn(href='/')
-          
-          i.ri-arrow-left-line
-          | Back to Homepage
+  .hubContent
+  .formContainer
+    a.backBtn(href='/')
+      i.ri-arrow-left-line
+        | Back to Homepage
 
-        
-          form(action='/addstock' method='POST')
-            h2
-              i.ri-store-line
-              |  Add Chick Stock
-            p Please fill the form to add and update chick stock
 
-            .formGroup
-              label(for='chickType')
-                i.ri-bird-line
-                | Chick Type
-              select(name='chickType' required)
-                option(value='') --
-                option(value='Broiler') Broiler
-                option(value='Layer') Layer
+    form(action='/addstock' method='POST')
+      h2
+        i.ri-store-line
+        |  Add Chick Stock
+      p Please fill the form to add and update chick and feed stock
 
-            .formGroup
-              label(for='chickCategory')
-                i.ri-stack-line
-                | Chick Category
-              select(name='chickCategory' required ty)
-                option(value='') --
-                option(value='Exotic') Exotic
-                option(value='Local') Local
+      .formGroup
+        label(for='chickType')
+          i.ri-bird-line
+          | Chick Type
+        select(name='chickType' required)
+          option(value='') --
+          option(value='Broiler') Broiler
+          option(value='Layer') Layer
 
-            .formGroup
-              label(for='quantity')
-                i.ri-hashtag
-                | Quantity
-              input(type='number' name='quantity' required)
+      .formGroup
+        label(for='chickCategory')
+          i.ri-stack-line
+          | Chick Category
+        select(name='chickCategory' required ty)
+          option(value='') --
+          option(value='Exotic') Exotic
+          option(value='Local') Local
 
-            .formGroup
-              label(for='age')
-                i.ri-timer-line
-                | Age in days
-              input(type='number' name='age' min=0 max=14 placeholder='0-14 days' required)
+      .formGroup
+        label(for='quantity')
+          i.ri-hashtag
+          | Quantity
+        input(type='number' name='quantity' required)
 
-            .formGroup
-              label(for='feedAmount')
-                i.ri-coffee-line
-                | Feed Amount
-              input(type='number' name='feedAmount' min=0 max=2)
+      .formGroup
+        label(for='age')
+          i.ri-timer-line
+          | Age in days
+        input(type='number' name='age' min=0 max=14 placeholder='0-14 days' required)
 
-            .formGroup
-              label(for='stockDate')
-                i.ri-calendar-line
-                | Stock Date
-              input(type='date' name='stockDate' required)
+      .formGroup
+        label(for='feedAmount')
+          i.ri-coffee-line
+          | Feed Amount
+        input(type='number' name='feedAmount' min=0 max=2)
 
-            button.submitBtn(type='submit')
-              i.ri-add-line
-              | Add Chick Stock
+      .formGroup
+        label(for='stockDate')
+          i.ri-calendar-line
+          | Stock Date
+        input(type='date' name='stockDate' required)
+
+      button.submitBtn(type='submit')
+        i.ri-add-line
+        | Add Chick Stock

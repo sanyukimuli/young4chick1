@@ -10,8 +10,7 @@ const chickRequestSchema = new mongoose.Schema({
   quantity: { type: Number, required: true, min: 1 },
   feedAmount: { type: Number, required: true, min: 0, max: 2 },
   status: { type: String, enum: ['Pending', 'Approved', 'Ready for Pickup'], default: 'Pending' },
-  requestDate: { type: Date, default: Date.now },
-  lastUpdated: { type: Date, default: Date.now }
+  requestDate: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('ChickRequestModel', chickRequestSchema);

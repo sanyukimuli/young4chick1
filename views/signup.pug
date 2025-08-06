@@ -25,9 +25,9 @@ html
             | Role
             select(name='role' required)
                 option(value='') --
-                option(value='farmer') Farmer
-                option(value='salesRep') Sales Rep 
-                option(value='manager') Manager
+                option(value='Farmer') Farmer
+                option(value='Sales Rep') Sales Rep 
+                option(value='Manager') Manager
 
 
         .formGroup
@@ -55,13 +55,13 @@ html
             | Gender
           .radioGroup
             label
-              input(type='radio' name='gender' value='male')
+              input(type='radio' name='gender' value='Male')
               | Male
             label
-              input(type='radio' name='gender' value='female')
+              input(type='radio' name='gender' value='Female')
               | Female
             label
-              input(type='radio' name='gender' value='other')
+              input(type='radio' name='gender' value='Other')
               | Other
 
         .formGroup
@@ -89,6 +89,12 @@ html
           input#recNin(type='text' name='recNin' placeholder="Recommender's NIN")
 
         .formGroup
+          label(for='phone')
+            i.ri-phone-line 
+            | Phone Number
+          input#phone(type='text' name='phone' placeholder='Enter your number')
+
+        .formGroup
           label(for='email')
             i.ri-mail-line 
             | Email
@@ -105,9 +111,6 @@ html
             i.ri-lock-password-line 
             | Confirm Password
           input#password2(type='password' name='password2' placeholder='Confirm your password')
-
-        p.note 
-          | After you sign up, we’ll send you back to our homepage. Don’t panic! We’ll let you know if there’s been an error.
 
         button.submitBtn(type='submit')
           i.ri-login-box-line 

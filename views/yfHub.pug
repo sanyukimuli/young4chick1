@@ -9,60 +9,87 @@ html
 
   body
     .hubContainer
-      h1 YF Hub
 
-
-
-
-        div.logoutContainer
-            form(action='/logout' method='POST')
-            button(type='submit') Logout
-
+      div.logoutContainer
+        a.logoutButton(href='/logout')
+          i.ri-logout-box-r-line
+          | Logout
+      p.greeting Hello #{username}, welcome to your YF Hub!
 
       .hubContent
         .formSection
-          h2 Chick & Feed Request Form
+          
+          h2
+            i.ri-article-line
+            |  Chick/Feed Request Form
 
           form(action='/requestChicks' method='POST')
-            label(for='firstName') First Name
+            label(for='firstName')
+              i.ri-user-line
+              | First Name
             input(type='text' name='firstName' required)
 
-            label(for='lastName') Last Name
+            label(for='lastName')
+              i.ri-user-line
+              | Last Name
             input(type='text' name='lastName' required)
 
-            label(for='nin') NIN Number
-            input(type='text' name='nin' required)
+            label(for='nin') 
+              i.ri-id-card-line
+              | NIN Number
+            input(type='text' name='ninNumber' required)
 
-            label(for='chickType') Chick Type
+            label(for='chickType')
+              i.ri-bird-line
+              | Chick Type
             select(name='chickType' required)
               option(value='') --
               option(value='Broiler') Broiler
               option(value='Layer') Layer
 
-            label(for='status') Farmer Status
-            select(name='status' required)
+            label(for='farmerStatus')
+              i.ri-leaf-line
+              | Farmer Status
+            select(name='farmerStatus' required)
               option(value='') --
               option(value='Starter Farmer') Starter Farmer
               option(value='Returning Farmer') Returning Farmer
 
-            label(for='category') Chick Category
-            select(name='category' required)
+            label(for='category')
+              i.ri-stack-line
+              | Chick Category
+            select(name='chickCategory' required)
               option(value='') --
               option(value='Exotic') Exotic
               option(value='Local') Local
 
-            label(for='quantity') Quantity
-            input(type='number' name='quantity' required)
+            label(for='quantity')
+              i.ri-hashtag
+              | Quantity*
+            p.smallNote *Starter Farmers will receive max 100 chicks on first order
+            input(type='number' name='quantity' required min=1)
 
-            label(for='feed') Feed Amount
-            input(type='number' name='feed' min=0, max=2)
+            label(for='feed')
+              i.ri-seedling-line
+              | Feed Amount
+            input(type='number' name='feedAmount' min=0, max=2)
 
-            button(type='submit') Submit Request
+            button(type='submit')
+              i.ri-send-plane-line
+              | Submit Request
 
         .ordersSection
+          h2
+            i.ri-folder-line
+            | Orders
+
           .tabButtons
-            button.tabBtn.active(data-tab='active') Active Orders
-            button.tabBtn(data-tab='history') Order History
+            button.tabBtn.active(data-tab='active')
+              i.ri-time-line
+              | Active Orders
+            button.tabBtn(data-tab='history')
+              i.ri-history-line
+              | Order History
 
           .tabContent#active
             .card
@@ -71,4 +98,5 @@ html
           .tabContent#history(style='display:none')
             .card
               p No order history available.
-script(src='/js/yfHub.js')
+
+    script(src='/js/yfHub.js')

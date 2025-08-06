@@ -1,0 +1,127 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(href='https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css' rel='stylesheet')
+    link(rel='stylesheet' href='/styles/yfHub.css')
+    title Manager Hub
+
+  body
+    .hubContainer
+      // Logout Button
+      div.logoutContainer
+        a.logoutButton(href='/logout')
+          i.ri-logout-box-r-line
+          | Logout
+
+      h1 Manager Hub
+
+      // Chick Stock Status
+      .hubContent
+        h2 Current Chick Stock
+        br
+        p
+            strong Total Stock:
+            |#{stockAmount}
+
+        p
+            strong Last Updated:
+            | #{lastUpdated}
+
+        a(href='/addstock') Update Chick Stock
+
+      hr
+
+      // Pending Chick Requests - link approavals to show on YF hub 
+      .hubContent
+        h2 Pending Chick Requests
+        if requests.length > 0
+          table
+            thead
+              tr
+                th Name
+                th NIN
+                th Chick Type
+                th Category 
+                th Status
+                th Quantity
+                th Feed
+                th Request Date
+                th Actions
+            tbody
+              each req in requests
+                tr
+                  td #{req.firstName} #{req.lastName}
+                  td #{req.ninNumber}
+                  td #{req.chickType}
+                  td #{req.chickCategory}
+                  td #{req.farmerStatus}
+                  td #{req.quantity}
+                  td #{req.feedAmount}
+                  td #{req.requestDate.toDateString()}
+                  td #{req.status}
+                    form(action=`/approveRequest/${req._id}` method='POST')
+                      button(type='submit') Approve
+        else
+          p No pending requests.
+
+      hr
+
+      // Section: Appointments Scheduled
+      .hubContent
+        h2 Appointments
+        if appointments && appointments.length > 0
+          table
+            thead
+              tr
+                th Farmer
+                th Date
+                th Time
+                th Purpose
+                th Completed?
+            tbody
+              each appointment in appointments
+                tr
+                  td #{appointment.farmerName}
+                  td #{appointment.date}
+                  td #{appointment.time}
+                  td #{appointment.purpose}
+                  td #{appointment.status}
+        else
+          p No appointments scheduled.
+
+      hr
+
+      // Section: View all users
+      .hubContent
+        h2 Users
+        if users.length > 0
+          table
+            thead
+              tr
+                th Role
+                th Farmer
+                th Age
+                th Gender
+                th NIN
+                th Phone Number 
+                th Email
+                th Recommender 
+                th Recommenders NIN
+            tbody
+              each user in users
+                tr
+                  td #{user.role}
+                  td #{user.firstName} #{user.lastName}
+                  td #{user.age}
+                  td #{user.gender}
+                  td #{user.nin}
+                  td #{user.phone}
+                  td #{user.email}
+                  td #{user.recFirstName} #{user.recLastName}
+                  td #{user.recNin}
+        else
+          p No users found.
+
+    script(src='/js/mHub.js')
