@@ -9,119 +9,156 @@ html
 
   body
     .hubContainer
-      // Logout Button
-      div.logoutContainer
+      // Logout
+      .logoutContainer
         a.logoutButton(href='/logout')
           i.ri-logout-box-r-line
           | Logout
 
-      h1 Manager Hub
+      h1
+        i.ri-user-settings-line
+        | Manager Hub
 
-      // Chick Stock Status
+        p.greeting Hello #{username}, welcome to your M Hub!
+
+      // Row 1: Chick Stock + Appointments
       .hubContent
-        h2 Current Chick Stock
-        br
-        p
+        .formSection
+          h2
+            i.ri-stack-line
+            | Current Chick Stock
+          p
             strong Total Stock:
-            |#{stockAmount}
-
-        p
+            | #{stockAmount}
+          p
             strong Last Updated:
             | #{lastUpdated}
+          a(href='/addstock' style='display:inline-block; margin-top: 12px;')
+            i.ri-add-box-line
+            | Add Stock
 
-        a(href='/addstock') Update Chick Stock
+        .ordersSection
+          h2
+            i.ri-calendar-event-line
+            | Appointments
+          if appointments && appointments.length > 0
+            .tableWrapper
+              table
+                thead
+                  tr
+                    th Farmer
+                    th Date
+                    th Time
+                    th Purpose
+                    th Completed?
+                tbody
+                  each appointment in appointments
+                    tr
+                      td #{appointment.farmerName}
+                      td #{appointment.date}
+                      td #{appointment.time}
+                      td #{appointment.purpose}
+                      td #{appointment.status}
+          else
+            p No appointments scheduled.
 
-      hr
-
-      // Pending Chick Requests - link approavals to show on YF hub 
+      // Row 2: Chick Requests
       .hubContent
-        h2 Pending Chick Requests
-        if requests.length > 0
-          table
-            thead
-              tr
-                th Name
-                th NIN
-                th Chick Type
-                th Category 
-                th Status
-                th Quantity
-                th Feed
-                th Request Date
-                th Actions
-            tbody
-              each req in requests
-                tr
-                  td #{req.firstName} #{req.lastName}
-                  td #{req.ninNumber}
-                  td #{req.chickType}
-                  td #{req.chickCategory}
-                  td #{req.farmerStatus}
-                  td #{req.quantity}
-                  td #{req.feedAmount}
-                  td #{req.requestDate.toDateString()}
-                  td #{req.status}
-                    form(action=`/approveRequest/${req._id}` method='POST')
-                      button(type='submit') Approve
-        else
-          p No pending requests.
+        .ordersSection
+          h2
+            i.ri-file-list-3-line
+            | All Chick Requests
+          if requests.length > 0
+            .tableWrapper
+              table
+                thead
+                  tr
+                    th Name
+                    th NIN
+                    th Farmer Type
+                    th Chick Type
+                    th Category
+                    th Status
+                    th Quantity
+                    th Feed
+                    th Request Date
+                    th Notes/Actions
+                    th Mark Sale As Complete?
+                    th Reset Status
+                tbody
+                  each req in requests
+                    tr
+                      td #{req.firstName} #{req.lastName}
+                      td #{req.ninNumber}
+                      td #{req.farmerStatus}
+                      td #{req.chickType}
+                      td #{req.chickCategory}
+                      td #{req.status}
+                      td #{req.quantity}
+                      td #{req.feedAmount}
+                      td #{req.requestDate.toDateString()}
+                      td
+                        if req.declineNotes
+                          p #{req.declineNotes}
+                        if req.status === 'Pending'
+                          form(action=`/approveRequest/${req._id}` method='POST' style='display:inline')
+                            button(type='submit')
+                              i.ri-check-line
+                              | Approve
+                          form(action=`/declineRequest/${req._id}` method='POST' style='display:inline; margin-left: 5px;')
+                            button(type='submit')
+                              i.ri-close-line
+                              | Decline
+                            br
+                            textarea(name="declineNotes" placeholder='Reason for decline' rows='2' cols='20' required)
+                      td
+                        if req.status === 'Approved'
+                          form(action=`/completeSale/${req._id}` method='POST' style='display:inline')
+                            button(type='submit')
+                              i.ri-checkbox-circle-line
+                              | Sale Completed
+                      td
+                        if req.status !== 'Pending'
+                          form(action=`/resetRequest/${req._id}` method='POST' style='display:inline; margin-left: 5px;')
+                            button(type='submit')
+                              i.ri-refresh-line
+                              | Reset to Pending
+          else
+            p No chick requests found.
 
-      hr
-
-      // Section: Appointments Scheduled
+      // Row 3: Users
       .hubContent
-        h2 Appointments
-        if appointments && appointments.length > 0
-          table
-            thead
-              tr
-                th Farmer
-                th Date
-                th Time
-                th Purpose
-                th Completed?
-            tbody
-              each appointment in appointments
-                tr
-                  td #{appointment.farmerName}
-                  td #{appointment.date}
-                  td #{appointment.time}
-                  td #{appointment.purpose}
-                  td #{appointment.status}
-        else
-          p No appointments scheduled.
-
-      hr
-
-      // Section: View all users
-      .hubContent
-        h2 Users
-        if users.length > 0
-          table
-            thead
-              tr
-                th Role
-                th Farmer
-                th Age
-                th Gender
-                th NIN
-                th Phone Number 
-                th Email
-                th Recommender 
-                th Recommenders NIN
-            tbody
-              each user in users
-                tr
-                  td #{user.role}
-                  td #{user.firstName} #{user.lastName}
-                  td #{user.age}
-                  td #{user.gender}
-                  td #{user.nin}
-                  td #{user.phone}
-                  td #{user.email}
-                  td #{user.recFirstName} #{user.recLastName}
-                  td #{user.recNin}
-        else
-          p No users found.
+        .ordersSection
+          h2
+            i.ri-team-line
+            | Users
+          if users.length > 0
+            .tableWrapper
+              table
+                thead
+                  tr
+                    th Role
+                    th Farmer
+                    th Age
+                    th Gender
+                    th NIN
+                    th Phone Number 
+                    th Email
+                    th Recommender 
+                    th Recommenders NIN
+                tbody
+                  each user in users
+                    tr
+                      td #{user.role}
+                      td #{user.firstName} #{user.lastName}
+                      td #{user.age}
+                      td #{user.gender}
+                      td #{user.nin}
+                      td #{user.phone}
+                      td #{user.email}
+                      td #{user.recFirstName} #{user.recLastName}
+                      td #{user.recNin}
+          else
+            p No users found.
 
     script(src='/js/mHub.js')

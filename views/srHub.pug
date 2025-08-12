@@ -1,0 +1,73 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(href='https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css' rel='stylesheet')
+    link(rel='stylesheet' href='/styles/yfHub.css')
+    title Sales Rep Hub
+
+  body
+    .hubContainer
+      // Logout
+      .logoutContainer
+        a.logoutButton(href='/logout')
+          i.ri-logout-box-r-line
+          | Logout
+
+      h1
+        i.ri-headphone-line
+        | Sales Rep Hub
+
+        p.greeting Hello #{username}, welcome to your SR Hub!
+
+      // Row : View All Requests
+      .hubContent
+        .ordersSection
+          h2
+            i.ri-file-list-3-line
+            | All Chick Requests
+          if requests.length > 0
+            .tableWrapper
+              table
+                thead
+                  tr
+                    th Name
+                    th NIN
+                    th Farmer Type
+                    th Chick Type
+                    th Category
+                    th Quantity
+                    th Feed
+                    th Status
+                    th Appointment
+                    th Request Date
+                    th Notes
+                    th Actions
+                tbody
+                  each req in requests
+                    tr
+                      td #{req.firstName} #{req.lastName}
+                      td #{req.ninNumber}
+                      td #{req.farmerStatus}
+                      td #{req.chickType}
+                      td #{req.chickCategory}
+                      td #{req.quantity}
+                      td #{req.feedAmount}
+                      td #{req.status}
+                      td #{req.appointmentDate ? new Date(req.appointmentDate).toDateString() + ' ' + req.appointmentTime : 'Not Set'}
+                      td #{req.requestDate.toDateString()}
+                      td #{req.declineNotes || ''}
+                      td
+                        if !req.appointmentDate
+                          form(action=`/addAppointment/${req._id}` method='GET' style='display:inline')
+                            button(type='submit')
+                              i.ri-add-circle-line
+                              | Add Appointment
+                        else
+                          form(action=`/editAppointment/${req._id}` method='GET' style='display:inline')
+                            button(type='submit')
+                              i.ri-edit-line
+                              | Edit Appointment
+          else
+            p No chick requests found.

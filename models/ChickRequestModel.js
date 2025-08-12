@@ -9,8 +9,11 @@ const chickRequestSchema = new mongoose.Schema({
   chickCategory: { type: String, enum: ['Exotic', 'Local'], required: true },
   quantity: { type: Number, required: true, min: 1 },
   feedAmount: { type: Number, required: true, min: 0, max: 2 },
-  status: { type: String, enum: ['Pending', 'Approved', 'Ready for Pickup'], default: 'Pending' },
-  requestDate: { type: Date, default: Date.now }
+  status: { type: String, default: 'Pending' },
+  requestDate: { type: Date, default: Date.now },
+  appointmentDate: { Date},
+  appointmentTime: {String},
+  declineNotes: { type: String, default: '' } 
 });
 
 module.exports = mongoose.model('ChickRequestModel', chickRequestSchema);

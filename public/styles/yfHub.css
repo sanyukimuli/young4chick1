@@ -371,4 +371,78 @@ nav {
   color: #333;
 }
 
+/* Table Styling for Manager Hub */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  font-size: 14px;
+}
+
+table thead {
+  background-color: var(--main-colour);
+  color: var(--text-colour);
+  font-weight: 600;
+}
+
+table thead th {
+  padding: 12px;
+  text-align: left;
+}
+
+table tbody tr {
+  border-bottom: 1px solid var(--secondary-colour);
+  transition: background 0.2s;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: var(--light-colour);
+}
+
+table tbody tr:hover {
+  background-color: var(--secondary-colour);
+}
+
+table td {
+  padding: 10px 12px;
+  vertical-align: middle;
+}
+
+/* Buttons inside tables */
+table button {
+  background-color: var(--main-colour);
+  color: var(--text-colour);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+table button:hover {
+  background-color: var(--accent-colour);
+  color: var(--white);
+}
+
+/* Textareas inside table cells */
+table textarea {
+  margin-top: 6px;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid var(--secondary-colour);
+  border-radius: 8px;
+  resize: vertical;
+  font-size: 13px;
+}
+
+
+
 

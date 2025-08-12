@@ -25,6 +25,7 @@ const indexRoutes = require('./routes/indexRoutes');
 const authRoutes = require('./routes/authRoutes');
 const farmerRoutes = require('./routes/farmerRoutes');
 const managerRoutes = require('./routes/managerRoutes');
+const salesRepRoutes = require('./routes/salesRepRoutes');
 
 
 
@@ -76,6 +77,7 @@ app.use('/', indexRoutes);
 app.use('/', authRoutes);
 app.use('/', farmerRoutes);
 app.use('/', managerRoutes);
+app.use('/', salesRepRoutes);
 
 // error handler
 app.use((req, res) => {
